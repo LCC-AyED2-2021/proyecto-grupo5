@@ -29,7 +29,9 @@ Los equipos de trabajo deben estar compuestos por 2 estudiantes. No se permiten 
 . Correcto funcionamiento de la aplicación acorde a los objetivos planteados. 
 
 . Claridad y documentación del código.
+
 . Correcta elección de las estructuras de datos y algoritmos utilizados.
+
 . Eficiencia de la aplicación relacionada al costo temporal y espacial.
 
 ### Creación de la Biblioteca
