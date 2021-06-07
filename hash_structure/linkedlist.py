@@ -87,11 +87,3 @@ def check_node(L, position):
         current_position = current_position + 1
         currentNode = currentNode.nextNode
     return exist
-
-
-
-
-
-
-
-
