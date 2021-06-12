@@ -21,14 +21,17 @@ def hash_function(name, size):
 	for i in range(0,word_size): #ord(word[i])=ascii
 		assci = ord(word[i])
 		if assci >= ord("A") and assci <= ord("Z"):
-			k = assci - ord("A") + math.pow(25, (word_size-i-1) )+ k
+			k = assci - ord("A") + math.pow(10, (word_size-i-1) )+ k #25
 		elif assci >= ord("a") and assci <= ord("z"):
-			k = (assci - ord("a")) + math.pow(25, (word_size-i-1)) + k
+			k = (assci - ord("a")) + math.pow(10, (word_size-i-1)) + k #25
 		else:
-			k= 26 + math.pow(25,i) + k
+			k= 26 + math.pow(10,i) + k #25
 	## valor de A recomendado Donald Knuth
 	A = (math.sqrt(5) - 1) / 2
-	key = math.floor(size * ((k * A) - math.floor(k * A)))
+	multi=k*A
+	multi_floor=math.floor(multi)
+	numcoma=(multi - multi_floor)
+	key = math.floor(size * (numcoma))
 	return key
 
 # inserta un key en una posicion determinada por la funcion de hash H(K)=K mod m
@@ -57,6 +60,17 @@ def insert(dictionary, key, value, collision_counter):
 	add(dictionary[index].value, newNode)
 	return auxiliar
 
+# inserta un key en una posicion determinada por la funcion de hash H(K)=K mod m
+def insert_nodes(dictionary, key, newNode):
+	long = len(dictionary)
+	index = hash_function(key, long)
+	if dictionary[index] == None:
+		dictionary[index] = Dictionary()
+		dictionary[index].key = index
+		dictionary[index].value = LinkedList()
+	#revisar si existe la palabra o hay que insertar
+	add(dictionary[index].value, newNode)
+
 # Busca una key, si la encuentra devuelve su value sino devuevle None
 def search(dictionary, key):
 	long = len(dictionary)
@@ -70,3 +84,10 @@ def search(dictionary, key):
 		return None
 	else:
 		return None
+
+	#acces
+def access(D,key):
+	if D[key]!=None:
+		if D[key].value!=None:
+			return D[key].value.head
+	return None

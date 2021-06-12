@@ -10,6 +10,31 @@ class Node:
 	nextNode = None
 
 
+# inserta un nodo en una lista para ordenar de mayor a menor
+def insert_ordenado(L, newNode):
+	if L.head == None:
+		add(L, newNode)
+		return L
+	else:
+		currentNode = L.head
+		while currentNode != None:
+			if currentNode.value.relevance <= newNode.relevance and currentNode == L.head:
+				add(L, newNode)
+				return L
+			elif currentNode.nextNode.value.relevance <= newNode.relevance:
+				N = Node()
+				N.value = newNode
+				N.nextNode = currentNode.nextNode
+				currentNode.nextNode = N
+				return L
+			currentNode = currentNode.nextNode
+		if currentNode.nextNode == None and currentNode.value.relevance<=newNode.relevance:
+			N = Node()
+			N.value = newNode
+			currentNode.nextNode = N
+		return L
+
+
 # Agrega un elemento al comienzo de L, siendo L una LinkedList que representa el TAD secuencia.
 def add(L, element):
 	newNode = Node()
@@ -69,21 +94,21 @@ def length(L):
 
 # Busca si el existe un nodo en la posicion ingresada
 def check_node(L, position):
-    current_position = 0
-    currentNode = L.head
-    exist = False
-    i = 0
-    
-    while i != -1:
-        # revisa si el nodo anterior existe
-        if current_position == (position - 1):
-            exist = True
-            # si existe, se puede colocar el nodo en la psocion ingresada
-            return exist
-        if currentNode.nextNode != None:
-            i = i + 1
-        else:
-            i = -1
-        current_position = current_position + 1
-        currentNode = currentNode.nextNode
-    return exist
+	current_position = 0
+	currentNode = L.head
+	exist = False
+	i = 0
+
+	while i != -1:
+		# revisa si el nodo anterior existe
+		if current_position == (position - 1):
+			exist = True
+			# si existe, se puede colocar el nodo en la psocion ingresada
+			return exist
+		if currentNode.nextNode != None:
+			i = i + 1
+		else:
+			i = -1
+		current_position = current_position + 1
+		currentNode = currentNode.nextNode
+	return exist
