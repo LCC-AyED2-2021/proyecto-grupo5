@@ -97,4 +97,18 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
  5. Cada vez que se crea un nuevo nodo en la LinkedList de relevancia, el mismo se irá ordenando de mayor a menor dependiendo del valor del atributo entry.
  6. Ya habiendo terminado de revisar toda la LinkedList Shelf, se imprime la LinkedList de relevancia. 
  
- 
+
+## Complejidad de las funciones
+
+# Función Create(): 
+
+...
+
+# Función Search():
+
+....
+
+# Función ReHashing():
+
+...
+
