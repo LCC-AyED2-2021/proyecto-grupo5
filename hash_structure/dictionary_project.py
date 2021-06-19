@@ -21,16 +21,21 @@ def hash_function(name, size):
 	for i in range(0,word_size): #ord(word[i])=ascii
 		assci = ord(word[i])
 		if assci >= ord("A") and assci <= ord("Z"):
-			k = assci - ord("A") + math.pow(10, (word_size-i-1) )+ k #25
+			k = (assci - ord("A")) + math.pow(20, (word_size-i-1) )+ k
 		elif assci >= ord("a") and assci <= ord("z"):
-			k = (assci - ord("a")) + math.pow(10, (word_size-i-1)) + k #25
+			k = (assci - ord("a")) + math.pow(20, (word_size-i-1)) + k
 		else:
-			k= 26 + math.pow(10,i) + k #25
+			k= 26 + math.pow(20,i) + k
+	#refuerzo
+	if k>math.pow(26,3):
+		k=k/math.pow(26,3)
 	## valor de A recomendado Donald Knuth
 	A = (math.sqrt(5) - 1) / 2
-	multi=k*A
-	multi_floor=math.floor(multi)
-	numcoma=(multi - multi_floor)
+	multi=(k*A) / math.pow(10,3)
+	numcoma,numentero=math.modf(multi)
+	#refuerzo
+	if numcoma<0.0009:
+		numcoma=numcoma*1000
 	key = math.floor(size * (numcoma))
 	return key
 

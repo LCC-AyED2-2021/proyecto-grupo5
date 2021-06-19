@@ -43,6 +43,7 @@ def save_structure(structure, local_path, name):
 	new_path = local_path + "/" + name
 	with open(new_path, "bw") as file:
 		pickle.dump(structure, file)
+	print()
 
 
 # hide_file(name)
@@ -62,7 +63,7 @@ def create(local_path):
 	return
 
 
-# crea estructuras y coloca los pth dentro
+# crea estructuras y coloca los path dentro
 def VerdaderoCreate(local_path):
 	# creamos una linked list
 	shelf = LinkedList()
