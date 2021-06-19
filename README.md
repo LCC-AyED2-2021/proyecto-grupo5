@@ -53,12 +53,36 @@ En caso de no existir ningún documento en la biblioteca que contenga la palabra
 Se implementará un script en python utilizando la versión 3. El script tendrá el nombre personal_library.py. Sobre ese script se realizarán las operaciones de creación y búsqueda. El manejo de errores, excepciones y posibles valores de entrada corren a cargo de los desarrolladores de la aplicación. Dicho script será utilizado para realizar las pruebas para evaluar el desempeño de la aplicación.
 
 
-### Modelo de proyecto
+### Modelo y Estructura del proyecto
 
 ![image](https://user-images.githubusercontent.com/53227496/122651019-81a7c280-d10c-11eb-83a1-d605a511f654.png)
 
 
 El programa comienza recibiendo un local_path dado por el usuario acompañado de la funcion -create. Esto genera una LinkedList a la cual denominamos Shelf(estantería). Dentro de ésta existen un conjunto de nodos. Y dentro de cada nodo hay 2 atributos. El atributo nextNode, y el atributo value que contiene un nodo Diccionario. A su vez, este nodo Diccionario está formado por otros 2 atributos: key y value.
+ 
  -key: Contiene el nombre del archivo de texto.
+ 
  -value: Dentro de este, se encuentra un Hashtable llamado Book.
- En cada slot del book se encontrará una LinkedList 
+ 
+ En cada slot del book se encontrará una LinkedList. Cada uno de sus nodos, contendrá en su atributo value un nuevo nodo de tipo archivo(fileNode). 
+ El nodo fileNode tiene los siguientes atributos:
+ 
+ -word: Por defecto tipo None. En este se incluirá un String de la librería algo1.py. 
+ 
+ -entry: Por defecto con valor 0. Este atributo funciona como contador de reiteraciones que realiza el String contenido en el atributo word dentro del archivo de texto.
+ 
+ ## Especificaciones y funcionamiento de la función -create:
+ 
+ La función -create actúa de la siguiente manera: 
+ 1. Crea un Nodo en la lista y ubica un nodo de tipo Diccionary que tiene dentro el nombre del archivo y un Hashtable.
+ 2. La función comenzará a leer el archivo, recorrerá línea por línea y separará palabra por palabra.
+ 3. Tomará cada palabra, y utilizando una función Hash la introducirá en el Hastable.(*)
+ 4. Cuando finalice el indexado de todas las palabras de un archivo, pasará al siguiente archivo de texto.
+ 5. Cuando no existan mas archivos por leer, finaliza la función.
+ (*) En caso de que se dé la existencia de 2 palabras iguales, se producirá el aumento del contador entry del fileNode al cual corresponda esa palabra.
+ 
+ 
+Una vez leidos e indexados todos los archivos de texto contenidos en el local_path, finaliza la función -create. En este punto ya podremos llevar a cabo la ejecución de la funcion -search. 
+ Al ejecutar el usuario la función -search acompañada de un parámetro keyword, ésta ingresará en la LinkedList donde se encuentran listados los  Hastables asociados a un nombre de archivo. 
+ 
+ 
