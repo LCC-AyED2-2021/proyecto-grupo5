@@ -71,18 +71,26 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
  
  -entry: Por defecto con valor 0. Este atributo funciona como contador de reiteraciones que realiza el String contenido en el atributo word dentro del archivo de texto.
  
+ Una vez leidos e indexados todos los archivos de texto contenidos en el local_path, finaliza la función -create. En este punto ya podremos llevar a cabo la ejecución de la funcion -search. 
+ Al ejecutar el usuario la función -search acompañada de un parámetro keyword, ésta ingresará en la LinkedList donde se encuentran listados los  Hastables asociados a un nombre de archivo. 
+ 
+ 
  ## Especificaciones y funcionamiento de la función -create:
  
  La función -create actúa de la siguiente manera: 
  1. Crea un Nodo en la lista y ubica un nodo de tipo Diccionary que tiene dentro el nombre del archivo y un Hashtable.
  2. La función comenzará a leer el archivo, recorrerá línea por línea y separará palabra por palabra.
- 3. Tomará cada palabra, y utilizando una función Hash la introducirá en el Hastable.(*)
+ 3. Tomará cada palabra, y utilizando una función Hash la introducirá en el Hashtable.(*)
  4. Cuando finalice el indexado de todas las palabras de un archivo, pasará al siguiente archivo de texto.
  5. Cuando no existan mas archivos por leer, finaliza la función.
+ 
  (*) En caso de que se dé la existencia de 2 palabras iguales, se producirá el aumento del contador entry del fileNode al cual corresponda esa palabra.
  
  
-Una vez leidos e indexados todos los archivos de texto contenidos en el local_path, finaliza la función -create. En este punto ya podremos llevar a cabo la ejecución de la funcion -search. 
- Al ejecutar el usuario la función -search acompañada de un parámetro keyword, ésta ingresará en la LinkedList donde se encuentran listados los  Hastables asociados a un nombre de archivo. 
+ ## Especificaciones y funcionamiento de la función -search:
+ 
+ La función -search actúa de la siguiente manera: 
+ 1.
+ 2.
  
  
