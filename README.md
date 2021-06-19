@@ -100,15 +100,15 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
 
 ## Complejidad de las funciones
 
-# Función Create(): 
+### Función Create(): 
 
 ...
 
-# Función Search():
+### Función Search():
 
 ....
 
-# Función ReHashing():
+### Función ReHashing():
 
 ...
 
