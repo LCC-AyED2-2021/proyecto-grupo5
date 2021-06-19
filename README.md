@@ -52,3 +52,9 @@ En caso de no existir ningún documento en la biblioteca que contenga la palabra
 
 Se implementará un script en python utilizando la versión 3. El script tendrá el nombre personal_library.py. Sobre ese script se realizarán las operaciones de creación y búsqueda. El manejo de errores, excepciones y posibles valores de entrada corren a cargo de los desarrolladores de la aplicación. Dicho script será utilizado para realizar las pruebas para evaluar el desempeño de la aplicación.
 
+
+### Modelo de proyecto
+
+![image](https://user-images.githubusercontent.com/53227496/122651019-81a7c280-d10c-11eb-83a1-d605a511f654.png)
+
+
