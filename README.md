@@ -58,3 +58,7 @@ Se implementará un script en python utilizando la versión 3. El script tendrá
 ![image](https://user-images.githubusercontent.com/53227496/122651019-81a7c280-d10c-11eb-83a1-d605a511f654.png)
 
 
+El programa comienza recibiendo un local_path dado por el usuario acompañado de la funcion -create. Esto genera una LinkedList a la cual denominamos Shelf(estantería). Dentro de ésta existen un conjunto de nodos. Y dentro de cada nodo hay 2 atributos. El atributo nextNode, y el atributo value que contiene un nodo Diccionario. A su vez, este nodo Diccionario está formado por otros 2 atributos: key y value.
+ -key: Contiene el nombre del archivo de texto.
+ -value: Dentro de este, se encuentra un Hashtable llamado Book.
+ En cada slot del book se encontrará una LinkedList 
