@@ -72,7 +72,7 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
  -entry: Por defecto con valor 0. Este atributo funciona como contador de reiteraciones que realiza el String contenido en el atributo word dentro del archivo de texto.
  
  Una vez leidos e indexados todos los archivos de texto contenidos en el local_path, finaliza la función -create. En este punto ya podremos llevar a cabo la ejecución de la funcion -search. 
- Al ejecutar el usuario la función -search acompañada de un parámetro keyword, ésta ingresará en la LinkedList donde se encuentran listados los  Hastables asociados a un nombre de archivo. 
+
  
  
  ## Especificaciones y funcionamiento de la función -create:
@@ -90,7 +90,11 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
  ## Especificaciones y funcionamiento de la función -search:
  
  La función -search actúa de la siguiente manera: 
- 1.
- 2.
+ 1. Se ejecuta con un parámetro keyword ingresado por el usuario.
+ 2. Luego, ingresa a la LinkedList donde se encuentran listados los Hashtables asociados a un nombre de archivo. 
+ 3. Se ejecuta la función Hash para hallar la ubicación del Slot donde podría encontrarse la palabra buscada o keyword dentro de una LinkedList.
+ 4. Si se encuentra la keyword, se ingresará en una nueva LinkedList de relevancia el nombre del archivo donde se encuentra la keyword y el valor del atributo entry.
+ 5. Cada vez que se crea un nuevo nodo en la LinkedList de relevancia, el mismo se irá ordenando de mayor a menor dependiendo del valor del atributo entry.
+ 6. Ya habiendo terminado de revisar toda la LinkedList Shelf, se imprime la LinkedList de relevancia. 
  
  
