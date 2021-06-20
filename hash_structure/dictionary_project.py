@@ -40,9 +40,9 @@ def hash_function(name, size):
 	return key
 
 # inserta un key en una posicion determinada por la funcion de hash H(K)=K mod m
-def insert(dictionary, key, value, collision_counter):
+def insert(dictionary, key, value, collision_counter): #O(n*t)
 	long = len(dictionary)
-	index = hash_function(key, long)
+	index = hash_function(key, long) #O(1)
 	if dictionary[index] == None:
 		dictionary[index] = Dictionary()
 		dictionary[index].key = index
@@ -50,8 +50,8 @@ def insert(dictionary, key, value, collision_counter):
 	#revisar si existe la palabra o hay que insertar
 	currentNode = dictionary[index].value.head
 	auxiliar=collision_counter
-	while currentNode != None:
-		if strcmp(currentNode.value.word, value):
+	while currentNode != None: #O(n)*O(t+1)=O(n*(t+1))
+		if strcmp(currentNode.value.word, value) #O(t)
 			currentNode.value.entry += 1
 			return collision_counter
 		else:
@@ -62,19 +62,19 @@ def insert(dictionary, key, value, collision_counter):
 	newNode=fileNode()
 	newNode.word=value
 	#newNode.entry=1
-	add(dictionary[index].value, newNode)
+	add(dictionary[index].value, newNode)#O(1)
 	return auxiliar
 
 # inserta un key en una posicion determinada por la funcion de hash H(K)=K mod m
-def insert_nodes(dictionary, key, newNode):
+def insert_nodes(dictionary, key, newNode):#O(1)
 	long = len(dictionary)
-	index = hash_function(key, long)
+	index = hash_function(key, long)#O(1)
 	if dictionary[index] == None:
 		dictionary[index] = Dictionary()
 		dictionary[index].key = index
 		dictionary[index].value = LinkedList()
 	#revisar si existe la palabra o hay que insertar
-	add(dictionary[index].value, newNode)
+	add(dictionary[index].value, newNode)#O(1)
 
 # Busca una key, si la encuentra devuelve su value sino devuevle None
 def search(dictionary, key):
