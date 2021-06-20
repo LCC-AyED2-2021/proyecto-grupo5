@@ -101,7 +101,7 @@ def word_insert(book, line, line_size, collision_counter):
 	start_word = 0
 	array_size = len(book)
 	for i in range(0, line_size):
-		if line[i] == " " or line[i] == "," or line[i] == "." or line[i] == ":" or line[i] == "[" or line[i] == "(" or line[i] == "]" or line[i] == ")" or i==(line_size-1) :
+		if line[i] == " " or line[i] == "," or line[i] == "." or line[i] == ":" or line[i] == "[" or line[i] == "(" or line[i] == "]" or line[i] == ")" or i==(line_size-1) or line[i]=="/n":
 			# substring
 			end_word = i
 			if i==(line_size-1):
