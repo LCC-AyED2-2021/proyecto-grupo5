@@ -87,12 +87,22 @@ def substr(t, start, end):
 	return String(''.join([t[i] for i in range(start, end)]))
 
 
+#mi funcion, cmabia todos los caracteres a minusculas
+def capital(caracter):
+	ascci=ord(caracter)
+	if ascci >= ord("A") and ascci <= ord("Z"):
+		newchr=chr(ascci+32)
+		return newchr
+	else:
+		return caracter
+
 # O(t+1). Donde t es la cantidad de caracteres que matchearon y 1 es para el caso de t=0
 def strcmp(t, p):
 	#agregamos esta linea
 	if len(t)==len(p):
 		for i in range(0, len(p)):
-			if t[i] != p[i]:
+			#no distingue entre mayusculas y minusculas
+			if capital(t[i]) != capital(p[i]):
 				return False
 		return True
 	return False

@@ -1,9 +1,12 @@
 import os
 from personal_library import *
 
+
+create("D:\Documentos de Usuario\Desktop\Test-Dataset")
+search("and")
+"""
 exit = False
 while not exit:
-
 	print("Que desea hacer?")
 	print("1. Create")
 	print("2. Search")
@@ -29,3 +32,4 @@ while not exit:
 	else:
 		exit = True
 		print("Program Finished")
+"""

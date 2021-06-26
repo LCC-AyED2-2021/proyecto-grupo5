@@ -11,17 +11,17 @@ class Node:
 
 
 # inserta un nodo en una lista para ordenar de mayor a menor
-def insert_ordenado(L, newNode):
+def insert_ordenado(L, newNode):#O(K)
 	if L.head == None:
-		add(L, newNode)
+		add(L, newNode) #O(1)
 		return L
 	else:
 		currentNode = L.head
-		while currentNode != None:
+		while currentNode != None: #O(K); tamaño de la lista
 			if currentNode.value.relevance <= newNode.relevance and currentNode == L.head:
 				add(L, newNode)
 				return L
-			elif currentNode.nextNode.value.relevance <= newNode.relevance:
+			elif currentNode.nextNode==None or currentNode.nextNode.value.relevance <= newNode.relevance:
 				N = Node()
 				N.value = newNode
 				N.nextNode = currentNode.nextNode

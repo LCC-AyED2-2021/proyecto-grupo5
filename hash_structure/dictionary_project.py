@@ -21,28 +21,22 @@ def hash_function(name, size):
 	for i in range(0,word_size): #ord(word[i])=ascii
 		assci = ord(word[i])
 		if assci >= ord("A") and assci <= ord("Z"):
-			k = (assci - ord("A")) + math.pow(20, (word_size-i-1) )+ k
+			k = (assci - ord("@"))*(i+1)+ k
 		elif assci >= ord("a") and assci <= ord("z"):
-			k = (assci - ord("a")) + math.pow(20, (word_size-i-1)) + k
+			k = (assci - ord("`"))*(i+1) + k
 		else:
-			k= 26 + math.pow(20,i) + k
-	#refuerzo
-	if k>math.pow(26,3):
-		k=k/math.pow(26,3)
+			k= assci*(i+1)+ k
 	## valor de A recomendado Donald Knuth
 	A = (math.sqrt(5) - 1) / 2
-	multi=(k*A) / math.pow(10,3)
+	multi=(k*A)
 	numcoma,numentero=math.modf(multi)
-	#refuerzo
-	if numcoma<0.0009:
-		numcoma=numcoma*1000
 	key = math.floor(size * (numcoma))
 	return key
 
 # inserta un key en una posicion determinada por la funcion de hash H(K)=K mod m
-def insert(dictionary, key, value, collision_counter):
+def insert(dictionary, key, value, collision_counter): #O(n*t)
 	long = len(dictionary)
-	index = hash_function(key, long)
+	index = hash_function(key, long) #O(1)
 	if dictionary[index] == None:
 		dictionary[index] = Dictionary()
 		dictionary[index].key = index
@@ -50,8 +44,8 @@ def insert(dictionary, key, value, collision_counter):
 	#revisar si existe la palabra o hay que insertar
 	currentNode = dictionary[index].value.head
 	auxiliar=collision_counter
-	while currentNode != None:
-		if strcmp(currentNode.value.word, value):
+	while currentNode != None: #O(n)*O(t+1)=O(n*(t+1))
+		if strcmp(currentNode.value.word, value): #O(t)
 			currentNode.value.entry += 1
 			return collision_counter
 		else:
@@ -62,19 +56,19 @@ def insert(dictionary, key, value, collision_counter):
 	newNode=fileNode()
 	newNode.word=value
 	#newNode.entry=1
-	add(dictionary[index].value, newNode)
+	add(dictionary[index].value, newNode)#O(1)
 	return auxiliar
 
 # inserta un key en una posicion determinada por la funcion de hash H(K)=K mod m
-def insert_nodes(dictionary, key, newNode):
+def insert_nodes(dictionary, key, newNode):#O(1)
 	long = len(dictionary)
-	index = hash_function(key, long)
+	index = hash_function(key, long)#O(1)
 	if dictionary[index] == None:
 		dictionary[index] = Dictionary()
 		dictionary[index].key = index
 		dictionary[index].value = LinkedList()
 	#revisar si existe la palabra o hay que insertar
-	add(dictionary[index].value, newNode)
+	add(dictionary[index].value, newNode)#O(1)
 
 # Busca una key, si la encuentra devuelve su value sino devuevle None
 def search(dictionary, key):
