@@ -102,17 +102,19 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
  
 
 ## Complejidad de las funciones
+L = cantidad de caracteres linea con mas caracteres 
+S = cantidad de slots del hash mas grande
 
 ### Función Create(): 
 
-...
+#O(L^4*S)
 
 ### Función Search():
 
-....
+#O(S^2*L^2)
 
 ### Función ReHashing():
 
-...
+#O(S^2)
 
 >>>>>>> main
