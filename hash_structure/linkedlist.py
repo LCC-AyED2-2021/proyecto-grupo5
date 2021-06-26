@@ -21,7 +21,7 @@ def insert_ordenado(L, newNode):#O(K)
 			if currentNode.value.relevance <= newNode.relevance and currentNode == L.head:
 				add(L, newNode)
 				return L
-			elif currentNode.nextNode.value.relevance <= newNode.relevance:
+			elif currentNode.nextNode==None or currentNode.nextNode.value.relevance <= newNode.relevance:
 				N = Node()
 				N.value = newNode
 				N.nextNode = currentNode.nextNode

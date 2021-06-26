@@ -2,7 +2,7 @@ from hash_structure.algo1 import *
 from hash_structure.linkedlist import LinkedList, add, insert_ordenado, length
 from hash_structure.dictionary_project import *
 import os
-
+import sys
 
 # =========================CLASES======================================================
 # =====================================================================================
@@ -41,6 +41,7 @@ def save_structure(structure, local_path, name):
 	##abre el archivo "estructura" en modo binary_write y comprime la estructura hash
 	# open no permite usar STRING DE ALGO1(NO permite arreglos)
 	new_path = local_path + "/" + name
+	sys.setrecursionlimit(10000)
 	with open(new_path, "bw") as file:
 		pickle.dump(structure, file)#O(structure)
 	print()
@@ -96,18 +97,30 @@ def word_indexer(file_path):#O(L^3*S)
 				blank_lines += 1
 	return book
 
+def char_verifier(char):
+	#ignora los caracteres "'","_"
+	if char=="\n":
+		return True
+	ascci=ord(char)
+	if ascci>=ord(" ") and ascci<= ord("/") :
+		return True
+	elif  ascci>=ord(":") and ascci<= ord("?"):
+		return True
+	elif ascci>=ord("[") and ascci<= ord("^"):
+		return True
+	elif ascci >= ord("{") and ascci <= ord("~"):
+		return True
+	return False
+
 
 def word_insert(book, line, line_size, collision_counter):
 	# O((L^2)*(1+S+(S^2/L)) = L^2 + S*L^2 + L*S^2 = O(L^2*S) <- O(L*M(1+K*(1+S/M)) S es la cantidad de slot del hash actual;L es la cantidad de letras por linea
-	book = newBook
 	start_word = 0
 	array_size = len(book)
 	for i in range(0, line_size): #O(L);L es la cantidad de letras por linea
-		if line[i] == " " or line[i] == "," or line[i] == "." or line[i] == ":" or line[i] == "[" or line[i] == "(" or line[i] == "]" or line[i] == ")" or i==(line_size-1) or "/n":
+		if char_verifier(line[i]) or i==(line_size-1):
 			# se realiza un substring en la linea para sacar una palabra
 			end_word = i
-			if i==(line_size-1):
-				end_word = i+1
 			current_word = substr(line, start_word, end_word) #O(M=L/2);M es tamaño de cada palabra de una linea
 			current_word_size = len(current_word)
 			start_word = end_word + 1
@@ -139,6 +152,7 @@ def rehashing(oldBook):#O(S*K=2*S)=O(S^2);L cantidad de caracteres linea con mas
 
 # ====================================SEARCH===========================================
 # =====================================================================================
+
 
 # imprime una lista de nodos relevanceNode con un indice
 def printList(L): #O(K); tamaño de la lista por slot
