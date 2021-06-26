@@ -77,7 +77,7 @@ def VerdaderoCreate(local_path):#O(L^4*S)
 		add(shelf, newNode)#O(1)
 	return shelf
 
-
+#separa las lineas de cada archivo y las envia a word_insert
 def word_indexer(file_path):#O(L^3*S)
 	array_size = 150
 	book = Array(array_size, Dictionary())
@@ -96,7 +96,7 @@ def word_indexer(file_path):#O(L^3*S)
 				blank_lines += 1
 	return book
 
-#
+#Verifica si se trata d eun caracter para seperar palabras
 def char_verifier(char):
 	#ignora los caracteres "'","_","-"
 	if char=="\n":
@@ -113,7 +113,7 @@ def char_verifier(char):
 		return True
 	return False
 
-#
+#Separar e insertar las palabras de cada linea, y verifica si es nesesario un rehashing
 def word_insert(book, line, line_size, collision_counter):
 	# O((L^2)*(1+S+(S^2/L)) = L^2 + S*L^2 + L*S^2 = O(L^2*S) <- O(L*M(1+K*(1+S/M)) S es la cantidad de slot del hash actual;L es la cantidad de letras por linea
 	start_word = 0
