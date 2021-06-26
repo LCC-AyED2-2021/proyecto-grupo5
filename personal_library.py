@@ -45,9 +45,6 @@ def save_structure(structure, local_path, name):
 		pickle.dump(structure, file)#O(structure)
 	print()
 
-
-# hide_file(name)
-
 # ===================================CREATE============================================
 # =====================================================================================
 
