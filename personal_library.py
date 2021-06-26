@@ -10,7 +10,6 @@ class relevanceNode:
 	relevance = None
 	book = None
 
-
 # ==========================PERSISTENCIA DE DATOS======================================
 # =====================================================================================
 
@@ -98,12 +97,13 @@ def word_indexer(file_path):#O(L^3*S)
 	return book
 
 def char_verifier(char):
-	#ignora los caracteres "'","_"
+	#ignora los caracteres "'","_","-"
 	if char=="\n":
 		return True
 	ascci=ord(char)
 	if ascci>=ord(" ") and ascci<= ord("/") :
-		return True
+		if ascci!=ord("'") and ascci!=ord("-"):
+			return True
 	elif  ascci>=ord(":") and ascci<= ord("?"):
 		return True
 	elif ascci>=ord("[") and ascci<= ord("^"):
@@ -203,3 +203,39 @@ def search(key_word):#O(L)*O(S^2*L)+O(S)= O(S^2*L^2)
 			print("No document found.")
 	else:
 		print("No document found.")
+
+# ==========================EJECUCION POR CONSOLA======================================
+# =====================================================================================
+if __name__ == "__main__":
+	if len(sys.argv)==1:
+		print("Posible parameters:")
+		print("-create",end=":")
+		print("--Make a directory")
+		print("-search",end=":")
+		print("--Look for a word in directory")
+	elif len(sys.argv) == 2:
+		print("one parameter missed")
+		if sys.argv[1] == "-create":
+			print("local_path is needed")
+		elif sys.argv[1] == "-search":
+			print("key_word is needed")
+		else:
+			print(sys.argv[1]," is not a function")
+	elif len(sys.argv)==3:
+		funcion=sys.argv[1]
+		variable=sys.argv[2]
+		if funcion == "-create":
+			isDir = False
+			while isDir == False:
+				isDir = os.path.isdir(variable)
+				if isDir == False:
+					print("error: no directory found.")
+					print("Needs a valid directory path(Write 'exit' if you want to quit):")
+					variable=input()
+				if variable=="exit":
+					exit()
+			create(variable)
+		elif funcion == "-search":
+			search(variable)
+	else:
+		exit()

@@ -1,10 +1,9 @@
 import os
 from personal_library import *
 
+#create("D:\Documentos de Usuario\Desktop\Test-Dataset")
+#search("covid")
 
-create("D:\Documentos de Usuario\Desktop\Test-Dataset")
-search("and")
-"""
 exit = False
 while not exit:
 	print("Que desea hacer?")
@@ -32,4 +31,4 @@ while not exit:
 	else:
 		exit = True
 		print("Program Finished")
-"""
+
