@@ -1,6 +1,7 @@
 import os
 from personal_library import *
 
+#create("D:/Documentos de Usuario/Desktop/Test-Dataset")
 #create("D:\Documentos de Usuario\Desktop\Test-Dataset")
 #search("covid")
 
@@ -31,4 +32,3 @@ while not exit:
 	else:
 		exit = True
 		print("Program Finished")
-
