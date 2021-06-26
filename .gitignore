@@ -1,5 +1,0 @@
-$ nano .gitignore
-$ cat .gitignore
-estructura
-*.pyc
-__pychache__/
