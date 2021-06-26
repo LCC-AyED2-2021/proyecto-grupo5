@@ -105,14 +105,10 @@ El programa comienza recibiendo un local_path dado por el usuario acompañado de
 
 ### Función Create(): 
 
-...
 
 ### Función Search():
 
-....
 
 ### Función ReHashing():
-
-...
 
 >>>>>>> main

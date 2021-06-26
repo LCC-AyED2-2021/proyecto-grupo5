@@ -96,6 +96,7 @@ def word_indexer(file_path):#O(L^3*S)
 				blank_lines += 1
 	return book
 
+#
 def char_verifier(char):
 	#ignora los caracteres "'","_","-"
 	if char=="\n":
@@ -112,7 +113,7 @@ def char_verifier(char):
 		return True
 	return False
 
-
+#
 def word_insert(book, line, line_size, collision_counter):
 	# O((L^2)*(1+S+(S^2/L)) = L^2 + S*L^2 + L*S^2 = O(L^2*S) <- O(L*M(1+K*(1+S/M)) S es la cantidad de slot del hash actual;L es la cantidad de letras por linea
 	start_word = 0
@@ -134,7 +135,7 @@ def word_insert(book, line, line_size, collision_counter):
 				collision_counter = 0
 	return book,collision_counter
 
-
+#
 def rehashing(oldBook):#O(S*K=2*S)=O(S^2);L cantidad de caracteres linea con mas caracteres; S cantidad de slots del hash mas grande
 	oldBook_size = len(oldBook)
 	newBook = Array(3 * oldBook_size, Dictionary())
