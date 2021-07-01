@@ -115,15 +115,9 @@ def word_insert(book, line, line_size, collision_counter):
 	# O((L^2)*(1+S+(S^2/L)) = L^2 + S*L^2 + L*S^2 = O(L^2*S) <- O(L*M(1+K*(1+S/M)) S es la cantidad de slot del hash actual;L es la cantidad de letras por linea
 	start_word = 0
 	array_size = len(book)
-<<<<<<< HEAD
 	for i in range(0, line_size): #O(L);L es la cantidad de letras por linea
 		if char_verifier(line[i]) or i==(line_size-1):
 			# se realiza un substring en la linea para sacar una palabra
-=======
-	for i in range(0, line_size):
-		if line[i] == " " or line[i] == "," or line[i] == "." or line[i] == ":" or line[i] == "[" or line[i] == "(" or line[i] == "]" or line[i] == ")" or i==(line_size-1) or line[i]=="/n":
-			# substring
->>>>>>> 6ab0a7d463e1bf47c17f36b4e8985730a3f3febd
 			end_word = i
 			current_word = substr(line, start_word, end_word) #O(M=L/2);M es tamaño de cada palabra de una linea
 			current_word_size = len(current_word)
@@ -207,7 +201,6 @@ def search(key_word):#O(L)*O(S^2*L)+O(S)= O(S^2*L^2)
 			print("No document found.")
 	else:
 		print("No document found.")
-<<<<<<< HEAD
 
 # ==========================EJECUCION POR CONSOLA======================================
 # =====================================================================================
@@ -244,5 +237,3 @@ if __name__ == "__main__":
 			search(variable)
 	else:
 		exit()
-=======
->>>>>>> 6ab0a7d463e1bf47c17f36b4e8985730a3f3febd
